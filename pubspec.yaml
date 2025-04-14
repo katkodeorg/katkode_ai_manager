@@ -1,6 +1,6 @@
 name: katkode_ai_manager
 description: "A flutter library to let users use their own LLM keys to access AI models"
-version: 0.0.1
+version: 0.0.2
 homepage: https://katkode.com
 repository: https://github.com/katkodeorg/katkode_ai_manager
 topics:

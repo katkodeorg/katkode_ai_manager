@@ -62,7 +62,7 @@ class UtilsCommon {
     return quantity.toStringAsFixed(decimalPlaces);
   }
 
-  static void log(dynamic message, {bool isError = false, Error? error}) {
+  static void log(dynamic message, {bool isError = false, dynamic error}) {
     // if its a long string message, split it into multiple lines
     if (message is String) {
       // split based on character length
