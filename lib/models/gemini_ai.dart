@@ -82,13 +82,13 @@ class GeminiAI implements AIModel {
 
     gemini.text(text).then(
       (value) {
-        UtilsCommon.log('Text completion: ${value?.content?.parts?.last.text}');
-        if (value?.content?.parts?.last.text == null) {
+        UtilsCommon.log('Text completion: ${value?.output}');
+        if (value?.output == null) {
           c.complete(null);
           return;
         }
 
-        c.complete(value?.content?.parts?.last.text);
+        c.complete(value?.output);
       },
     ).catchError(
       (e) {
@@ -121,12 +121,12 @@ class GeminiAI implements AIModel {
     )
         .then(
       (value) {
-        if (value?.content?.parts?.last.text == null) {
+        if (value?.output == null) {
           c.complete(null);
           return;
         }
 
-        c.complete(value?.content?.parts?.last.text);
+        c.complete(value?.output);
       },
     ).catchError(
       (e) {
@@ -144,7 +144,7 @@ class GeminiAI implements AIModel {
       String? testResult = await getTextCompletion(
         'Reply with the text "Working"',
       );
-      if (testResult == 'Working') {
+      if (testResult?.trim().toLowerCase() == 'working') {
         lastStatus = AIStatus.active;
         lastStatusCheckedTime = DateTime.now().toUtc();
         return Future.value(true);
